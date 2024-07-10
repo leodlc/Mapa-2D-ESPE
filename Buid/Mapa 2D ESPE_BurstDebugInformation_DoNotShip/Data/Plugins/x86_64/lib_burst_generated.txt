@@ -1,4 +1,4 @@
-Library: D:\VIDEOJUEGOS\Mapa-2D-ESPE\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
+Library: D:\Proyecto Videojuegos\Mapa-2D-ESPE\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
 --platform=Windows
 --backend=burst-llvm-16
 --target=X64_SSE2
@@ -52,10 +52,10 @@ Library: D:\VIDEOJUEGOS\Mapa-2D-ESPE\Temp\BurstOutput\Data\Plugins\x86_64\lib_bu
 --assembly-defines=mscorlib;
 --linker-options=PdbAltPath="Mapa 2D ESPE_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
---temp-folder=D:\VIDEOJUEGOS\Mapa-2D-ESPE\Temp\Burst
---key-folder=C:/Program Files/Unity/Hub/Editor/2022.3.31f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
---decode-folder=D:\VIDEOJUEGOS\Mapa-2D-ESPE\Library\Burst
---output=D:\VIDEOJUEGOS\Mapa-2D-ESPE\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
+--temp-folder=D:\Proyecto Videojuegos\Mapa-2D-ESPE\Temp\Burst
+--key-folder=D:/Unity/Unity Editor/2022.3.31f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
+--decode-folder=D:\Proyecto Videojuegos\Mapa-2D-ESPE\Library\Burst
+--output=D:\Proyecto Videojuegos\Mapa-2D-ESPE\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/
 
 --method=Unity.Burst.BurstCompiler+BurstCompilerHelper, Unity.Burst, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::IsBurstEnabled()--8c2be93e18276203cbd918daa2748a10
@@ -142,10 +142,10 @@ Library: D:\VIDEOJUEGOS\Mapa-2D-ESPE\Temp\BurstOutput\Data\Plugins\x86_64\lib_bu
 --assembly-defines=mscorlib;
 --linker-options=PdbAltPath="Mapa 2D ESPE_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
---temp-folder=D:\VIDEOJUEGOS\Mapa-2D-ESPE\Temp\Burst
---key-folder=C:/Program Files/Unity/Hub/Editor/2022.3.31f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
---decode-folder=D:\VIDEOJUEGOS\Mapa-2D-ESPE\Library\Burst
---output=D:\VIDEOJUEGOS\Mapa-2D-ESPE\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
+--temp-folder=D:\Proyecto Videojuegos\Mapa-2D-ESPE\Temp\Burst
+--key-folder=D:/Unity/Unity Editor/2022.3.31f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
+--decode-folder=D:\Proyecto Videojuegos\Mapa-2D-ESPE\Library\Burst
+--output=D:\Proyecto Videojuegos\Mapa-2D-ESPE\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/
 
 --method=Unity.Burst.BurstCompiler+BurstCompilerHelper, Unity.Burst, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::IsBurstEnabled()--8c2be93e18276203cbd918daa2748a10
