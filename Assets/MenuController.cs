@@ -13,6 +13,6 @@ public class MenuController : MonoBehaviour
 
     public void IniciarJuego()
     {
-        SceneManager.LoadScene("SampleScene"); // Asegúrate de que el nombre de la escena coincida con el que deseas cargar
+        SceneManager.LoadScene("Inicio 3"); // Asegúrate de que el nombre de la escena coincida con el que deseas cargar
     }
 }

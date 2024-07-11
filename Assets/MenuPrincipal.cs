@@ -5,11 +5,15 @@ using UnityEngine;
 
 public class MenuPrincipal : MonoBehaviour
 {
-    public void Inicio()
+    public void OnclickPlay()
+    {
+        LoadingScreenManager.Instance.SwitchToScene(2);
+    }
+/*     public void Inicio()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
         
-    }
+    } */
 
     public void salir()
     {
