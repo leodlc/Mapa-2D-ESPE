@@ -1,34 +1,35 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class menuPausa : MonoBehaviour
+public class PauseGame : MonoBehaviour
 {
-    public GameObject pausePanel;
+    public string pauseSceneName = "PantallaPausa";  // Nombre de la escena de pausa
 
-    void Start()
+    void Update()
     {
-        if (pausePanel != null)
+        // Detectar la tecla "Esc"
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            pausePanel.SetActive(false);
+            Pause();
         }
     }
 
     public void Pause()
     {
-        if (Time.timeScale == 1)
+        // Verificar si la escena de pausa ya está cargada
+        if (SceneManager.GetSceneByName(pauseSceneName).isLoaded)
         {
-            Time.timeScale = 0;
-            if (pausePanel != null)
-            {
-                pausePanel.SetActive(true);
-            }
+            // Si está cargada, reanudar el juego
+            SceneManager.UnloadSceneAsync(pauseSceneName);
+            Time.timeScale = 1;  // Reanudar el tiempo
+            Debug.Log("Reanudar el juego.");
         }
         else
         {
-            Time.timeScale = 1;
-            if (pausePanel != null)
-            {
-                pausePanel.SetActive(false);
-            }
+            // Si no está cargada, pausar el juego
+            SceneManager.LoadScene(pauseSceneName, LoadSceneMode.Additive);
+            Time.timeScale = 0;  // Pausar el tiempo
+            Debug.Log("Juego pausado.");
         }
     }
 }
