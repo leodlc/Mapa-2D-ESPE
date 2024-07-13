@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class pausaContinuar : MonoBehaviour
+public class PausaContinuar : MonoBehaviour
 {
     public static bool GameIsPaused = false;
 
@@ -27,7 +27,7 @@ public class pausaContinuar : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
-        SceneManager.UnloadSceneAsync("PantallaPausa");
+        SceneManager.LoadScene("SampleScene");
     }
 
     void Pause()
@@ -40,7 +40,7 @@ public class pausaContinuar : MonoBehaviour
     public void LoadMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Inicio");
+        SceneManager.LoadScene("PantallaMenuOpciones");
     }
 
     public void QuitGame()

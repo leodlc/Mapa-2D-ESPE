@@ -16,17 +16,17 @@ public class PauseGame : MonoBehaviour
 
     public void Pause()
     {
-        // Verificar si la escena de pausa ya está cargada
+        // Verificar si la escena de pausa ya estï¿½ cargada
         if (SceneManager.GetSceneByName(pauseSceneName).isLoaded)
         {
-            // Si está cargada, reanudar el juego
+            // Si estï¿½ cargada, reanudar el juego
             SceneManager.UnloadSceneAsync(pauseSceneName);
             Time.timeScale = 1;  // Reanudar el tiempo
             Debug.Log("Reanudar el juego.");
         }
         else
         {
-            // Si no está cargada, pausar el juego
+            // Si no estï¿½ cargada, pausar el juego
             SceneManager.LoadScene(pauseSceneName, LoadSceneMode.Additive);
             Time.timeScale = 0;  // Pausar el tiempo
             Debug.Log("Juego pausado.");
