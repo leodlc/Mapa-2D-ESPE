@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - key
+  - door
+  - general_events
+  - inventario
+  - slot
+  - inventario-com
   layers:
   - Default
   - TransparentFX

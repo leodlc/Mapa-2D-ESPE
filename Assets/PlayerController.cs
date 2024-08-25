@@ -6,6 +6,9 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private Rigidbody2D rb2d;
 
+    GameObject inventory_com;
+    private bool inventoryVisible = false;
+
     void Start()
     {
         // Verificamos si los componentes fueron asignados correctamente
@@ -14,6 +17,9 @@ public class PlayerController : MonoBehaviour
 
         // Asegúrate de que el Rigidbody2D no esté en modo Kinematic
         rb2d.bodyType = RigidbodyType2D.Dynamic;
+
+        inventory_com = GameObject.FindGameObjectWithTag("inventario-com");
+        inventory_com.SetActive(false);
     }
 
     void Update()
@@ -63,6 +69,22 @@ public class PlayerController : MonoBehaviour
             // Si no hay movimiento, volver al estado Idle
             animator.SetBool("isWalking", false);
         }
+        if(Input.GetKeyUp(KeyCode.I))
+        {
+            if(!inventoryVisible)
+            {
+                inventoryVisible = true;
+                inventory_com.SetActive(inventoryVisible);
+                GameObject.FindGameObjectWithTag("general_events").GetComponent<InventoryController>().showInventory();
+            }
+            else
+            {
+                inventoryVisible = false;
+                inventory_com.SetActive(inventoryVisible);
+            }
+            
+        }
+        
     }
 
 }
