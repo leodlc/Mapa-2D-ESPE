@@ -10,6 +10,9 @@ TagManager:
   - inventario
   - slot
   - inventario-com
+  - npc
+  - pelota
+  - arco
   layers:
   - Default
   - TransparentFX
