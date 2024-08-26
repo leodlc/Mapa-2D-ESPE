@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Creditos.unity
     guid: 3e0fbc9c5bcb2284e9a01d09fdfc3876
+  - enabled: 1
+    path: Assets/Scenes/puzzleEdif.unity
+    guid: 7e058aa14f71c6c4e92f1f1fc09e7cd9
   m_configObjects: {}
