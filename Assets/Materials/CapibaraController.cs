@@ -3,17 +3,18 @@ using UnityEngine;
 public class CapibaraController : MonoBehaviour
 {
     public float speed = 2f; // Velocidad de movimiento
-    public float leftBoundary = -5f; // Límite izquierdo del movimiento
-    public float rightBoundary = 5f; // Límite derecho del movimiento
+    public float patrolDistance = 5f; // Distancia a patrullar desde la posición inicial
     public Transform playerTransform; // Transform del robot
 
     private Animator animator;
     private bool movingRight = true; // Controla si el capibara se mueve a la derecha
     private bool encounteredPlayer = false; // Controla si el capibara ha encontrado al robot
+    private float startX; // La posición X inicial
 
     void Start()
     {
         animator = GetComponent<Animator>();
+        startX = transform.position.x; // Guardamos la posición X inicial
     }
 
     void Update()
@@ -26,9 +27,9 @@ public class CapibaraController : MonoBehaviour
         {
             Patrol(); // Si no, sigue patrullando
         }
+        
     }
 
-    // Método para patrullar entre los límites establecidos
     void Patrol()
     {
         if (movingRight)
@@ -37,9 +38,9 @@ public class CapibaraController : MonoBehaviour
             transform.Translate(Vector2.right * speed * Time.deltaTime);
             animator.SetFloat("Horizontal", 1f); // Animación de caminar hacia la derecha
 
-            if (transform.position.x >= rightBoundary)
+            // Cambia la dirección si llega a la distancia de patrullaje
+            if (transform.position.x >= startX + patrolDistance)
             {
-                // Cambia la dirección si llega al límite derecho
                 movingRight = false;
             }
         }
@@ -49,15 +50,14 @@ public class CapibaraController : MonoBehaviour
             transform.Translate(Vector2.left * speed * Time.deltaTime);
             animator.SetFloat("Horizontal", -1f); // Animación de caminar hacia la izquierda
 
-            if (transform.position.x <= leftBoundary)
+            // Cambia la dirección si regresa al punto de inicio
+            if (transform.position.x <= startX)
             {
-                // Cambia la dirección si llega al límite izquierdo
                 movingRight = true;
             }
         }
     }
 
-    // Método para seguir al jugador si es que lo ha encontrado
     void FollowPlayer()
     {
         Vector2 direction = (playerTransform.position - transform.position).normalized;
@@ -73,7 +73,6 @@ public class CapibaraController : MonoBehaviour
         }
     }
 
-    // Método para detectar cuando el capibara encuentra al robot
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player")) // Asegúrate de que el robot tenga el tag "Player"

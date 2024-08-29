@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Puzzle2.unity
     guid: 7eacff379fd9e2149b6899e6add9bf08
+  - enabled: 1
+    path: Assets/Scenes/PantallaMenuOpciones.unity
+    guid: 2e16b0e1ecec94f4bab39d2e8e05de5b
   m_configObjects: {}

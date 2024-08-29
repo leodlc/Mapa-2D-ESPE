@@ -4,8 +4,7 @@ using UnityEngine.SceneManagement;
 public class PausaContinuar : MonoBehaviour
 {
     public static bool GameIsPaused = false;
-
-    public GameObject pauseMenuUI;
+    public string pauseSceneName = "PantallaPausa";  // Nombre de la escena de pausa
 
     void Update()
     {
@@ -24,17 +23,32 @@ public class PausaContinuar : MonoBehaviour
 
     public void Resume()
     {
-        pauseMenuUI.SetActive(false);
+        // Reanudar el juego
         Time.timeScale = 1f;
         GameIsPaused = false;
-        SceneManager.LoadScene("SampleScene");
+        
+        // Descargar la escena de pausa si está cargada
+        if (SceneManager.GetSceneByName(pauseSceneName).isLoaded)
+        {
+            SceneManager.UnloadSceneAsync(pauseSceneName);
+        }
+
+        Debug.Log("Reanudar el juego.");
     }
 
     void Pause()
     {
-        pauseMenuUI.SetActive(true);
+        // Pausar el juego
         Time.timeScale = 0f;
         GameIsPaused = true;
+        
+        // Cargar la escena de pausa si no está ya cargada
+        if (!SceneManager.GetSceneByName(pauseSceneName).isLoaded)
+        {
+            SceneManager.LoadScene(pauseSceneName, LoadSceneMode.Additive);
+        }
+
+        Debug.Log("Juego pausado.");
     }
 
     public void LoadMenu()

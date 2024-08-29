@@ -15,6 +15,10 @@ public class MenuPrincipal : MonoBehaviour
         
     } */
 
+public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
     public void salir()
     {
         Debug.Log("Salir");
