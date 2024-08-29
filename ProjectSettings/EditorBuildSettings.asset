@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PantallaMenuOpciones.unity
     guid: 2e16b0e1ecec94f4bab39d2e8e05de5b
+  - enabled: 1
+    path: Assets/Scenes/JuegoFutbol.unity
+    guid: 827781e46bde99b43af597800c3d5003
   m_configObjects: {}
