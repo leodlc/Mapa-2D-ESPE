@@ -4,54 +4,71 @@ using UnityEngine;
 
 public class PipeScript : MonoBehaviour
 {
+    // Cambié `float` a `float[]` para definir un array de floats
     float[] rotations = { 0f, 90f, 180f, 270f };
     public float[] correctRotation;
-    
     [SerializeField]
     bool isPlaced = false;
-    int possibleRots = 1;
+    int PossibleRots = 1;
     GameManager gameManager;
-
     private void Awake()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
-
     private void Start()
     {
-        possibleRots = correctRotation.Length;
+        PossibleRots = correctRotation.Length;
+        // Corrección del nombre `Length` en lugar de `Lenght`
         int rand = Random.Range(0, rotations.Length);
         transform.eulerAngles = new Vector3(0, 0, rotations[rand]);
+        if (PossibleRots > 1)
+        {
+            if (transform.eulerAngles.z == correctRotation[0] || transform.eulerAngles.z == correctRotation[1])
+            {
+                isPlaced = true;
+                gameManager.correctMove();
+            }
+        }
+        else
+        {
+            if (transform.eulerAngles.z == correctRotation[0])
+            {
+                isPlaced = true;
+                gameManager.correctMove();
+            }
+        }
 
-        CheckCorrectPlacement();
     }
 
     private void OnMouseDown()
     {
+        // La rotación no necesita correcciones adicionales
         transform.Rotate(new Vector3(0, 0, 90));
-        CheckCorrectPlacement();
-    }
-
-    private void CheckCorrectPlacement()
-    {
-        bool wasPlaced = isPlaced;
-
-        if (possibleRots > 1)
+        if (PossibleRots > 1)
         {
-            isPlaced = transform.eulerAngles.z == correctRotation[0] || transform.eulerAngles.z == correctRotation[1];
+            if (transform.eulerAngles.z == correctRotation[0] || transform.eulerAngles.z == correctRotation[1] && isPlaced == false)
+            {
+                isPlaced = true;
+                gameManager.correctMove();
+            }
+            else if (isPlaced == true)
+            {
+                isPlaced = false;
+                gameManager.wrongMove();
+            }
         }
         else
         {
-            isPlaced = transform.eulerAngles.z == correctRotation[0];
-        }
-
-        if (isPlaced && !wasPlaced)
-        {
-            gameManager.CorrectMove();
-        }
-        else if (!isPlaced && wasPlaced)
-        {
-            gameManager.WrongMove();
+            if (transform.eulerAngles.z == correctRotation[0] && isPlaced == false)
+            {
+                isPlaced = true;
+                gameManager.correctMove();
+            }
+            else if (isPlaced == true)
+            {
+                isPlaced = false;
+                gameManager.wrongMove();
+            }
         }
     }
 }
